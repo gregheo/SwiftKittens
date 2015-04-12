@@ -41,10 +41,10 @@ class KittenCellNode: ASCellNode {
   private let textNode = ASTextNode()
   private let divider = ASDisplayNode()
 
-  private lazy var textStyle: NSDictionary = {
+  private lazy var textStyle: [NSObject: AnyObject] = {
     let font = UIFont(name: "HelveticaNeue", size: 12)!
 
-    let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+    let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
     style.paragraphSpacing = 0.5 * font.lineHeight
     style.hyphenationFactor = 1.0
 
@@ -60,8 +60,7 @@ class KittenCellNode: ASCellNode {
     imageNode.URL = NSURL(string: "http://placekitten.com/\(Int(size.width))/\(Int(size.height))")!
     addSubnode(imageNode)
 
-    textNode = ASTextNode()
-    textNode.attributedString = NSAttributedString(string: kittyIpsum(), attributes:textStyle)
+    textNode.attributedString = NSAttributedString(string: kittyIpsum(), attributes: textStyle)
     addSubnode(textNode)
 
     divider.backgroundColor = UIColor.lightGrayColor()
@@ -87,12 +86,12 @@ class KittenCellNode: ASCellNode {
   }
 
   private func kittyIpsum() -> String {
-    let location = Int(arc4random_uniform(UInt32(placeholders.count)))
-    let length = Int(arc4random_uniform(UInt32(placeholders.count) - location))
+    let location = arc4random_uniform(UInt32(placeholders.count))
+    let length = arc4random_uniform(UInt32(placeholders.count) - location)
 
     var ipsum = ""
 
-    for i in location...location+length {
+    for i in Int(location)...Int(location+length) {
       ipsum += placeholders[i] + (i % 2 == 0 ? "\n" : " ")
     }
 

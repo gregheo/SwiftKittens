@@ -23,7 +23,7 @@ class BlurbCellNode: ASCellNode, ASTextNodeDelegate {
     textNode.linkAttributeNames = [kLinkAttributeName]
 
     let blurb = "kittens courtesy placekitten.com 🐱" as NSString
-    let string = NSMutableAttributedString(string: blurb)
+    let string = NSMutableAttributedString(string: blurb as String)
 
     string.addAttribute(NSFontAttributeName, value:UIFont(name: "HelveticaNeue-Light", size: 16.0)!, range:NSMakeRange(0, blurb.length))
     string.addAttributes([kLinkAttributeName: NSURL(string: "http://placekitten.com/")!,

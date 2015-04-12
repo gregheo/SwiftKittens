@@ -26,7 +26,7 @@ class ViewController: UIViewController, ASTableViewDataSource, ASTableViewDelega
     }
   }
 
-  override init() {
+  init() {
     tableView = ASTableView(frame: .zeroRect, style: .Plain)
     kittenDataSource = []
 
