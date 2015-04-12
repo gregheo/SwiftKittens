@@ -12,10 +12,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AsyncDisplayKit:
-    :commit: 4ca527c24f3783026060c8df36f33d9076188d50
+    :commit: 1316389f10d53e6d865f90d96998471216fab167
     :git: https://github.com/facebook/AsyncDisplayKit
 
 SPEC CHECKSUMS:
-  AsyncDisplayKit: 2c355970d1aabe00608211d9a50e35b7a5dc0ae4
+  AsyncDisplayKit: de270404aae9f070e1450e38840003691f9b5259
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.3

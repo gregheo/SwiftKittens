@@ -107,11 +107,11 @@ class ViewController: UIViewController, ASTableViewDataSource, ASTableViewDelega
     dataSourceLocked = false
   }
 
-  func shouldBatchFetchForTableView(tableView: UITableView) -> Bool {
+  func shouldBatchFetchForTableView(tableView: ASTableView!) -> Bool {
     return kittenDataSource.count < kMaxLitterSize
   }
 
-  func tableView(tableView: UITableView, willBeginBatchFetchWithContext context: ASBatchContext) {
+  func tableView(tableView: ASTableView!, willBeginBatchFetchWithContext context: ASBatchContext!) {
     NSLog("adding kitties")
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
